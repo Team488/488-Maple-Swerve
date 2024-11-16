@@ -112,6 +112,7 @@ public class CompetitionFieldVisualizer {
         for(PhotonCameraProperties prop: VisionConstants.photonVisionCameras) {
             Pose3d cameraPose = mainRobot.getPose3d().transformBy(prop.robotToCamera);
             Logger.recordOutput("Vision/" + prop.name, cameraPose);
+            
         }
     }
 
