@@ -4,9 +4,14 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.constants.VisionConstants;
 import frc.robot.subsystems.drive.HolonomicDriveSubsystem;
+import frc.robot.subsystems.vision.apriltags.PhotonCameraProperties;
 import frc.robot.utils.CompetitionFieldUtils.Objects.GamePieceOnFlyDisplay;
 import java.util.*;
+
+import javax.naming.ldap.ManageReferralControl;
+
 import org.littletonrobotics.junction.Logger;
 
 /**
@@ -103,6 +108,11 @@ public class CompetitionFieldVisualizer {
 
         dashboardField2d.setRobotPose(mainRobot.getObjectOnFieldPose2d());
         Logger.recordOutput("/Field/Robot", mainRobot.getObjectOnFieldPose2d());
+
+        for(PhotonCameraProperties prop: VisionConstants.photonVisionCameras) {
+            Pose3d cameraPose = mainRobot.getPose3d().transformBy(prop.robotToCamera);
+            Logger.recordOutput("Vision/" + prop.name, cameraPose);
+        }
     }
 
     private void removeGamePiecesOnFlyIfReachedTarget() {
