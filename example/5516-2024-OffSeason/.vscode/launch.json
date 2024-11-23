@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "aaaaaaaaa",
+      "request": "launch",
+      "mainClass": "frc.robot.subsystems.objectdetection.aaaaaaaaa",
+      "projectName": "5516-2024-OffSeason"
+    },
+    {
       "type": "wpilib",
       "name": "WPILib Desktop Debug",
       "request": "launch",
