@@ -2,16 +2,13 @@ package frc.robot.subsystems.vision.apriltags;
 
 import edu.wpi.first.apriltag.AprilTagFieldLayout;
 import edu.wpi.first.math.geometry.Pose2d;
-<<<<<<< Updated upstream
 import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.geometry.Translation3d;
 import frc.robot.utils.CompetitionFieldUtils.Objects.Crescendo2024FieldObjects;
 import frc.robot.utils.CompetitionFieldUtils.Objects.Crescendo2024FieldObjects.NoteOnFieldSimulated;
-=======
 import frc.robot.subsystems.objectdetection.LocalhostCommunicator;
->>>>>>> Stashed changes
 
 import java.util.List;
 import java.util.function.Supplier;
