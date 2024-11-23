@@ -37,7 +37,7 @@ public class VisionConstants {
                     new Translation2d(0.2, 0), // the outing position of the camera in relative to the robot center
                     0.3, // the mounting height, in meters
                     Rotation2d.fromDegrees(0), // the camera facing, 0 is front, positive is counter-clockwise
-                    24, // camera pitch angle, in degrees
+                    0, // camera pitch angle, in degrees
                     0 // camera roll angle, 0 for up-right and 180 for upside-down
                     ),
             new PhotonCameraProperties(
@@ -53,8 +53,8 @@ public class VisionConstants {
                     new Translation2d(0.2, 0.15),
                     0.3,
                     Rotation2d.fromDegrees(35),
-                    30,
-                    180 // upside-down
+                    0,
+                    0
                     ),
             new PhotonCameraProperties(
                     "FrontRightCam",
@@ -69,8 +69,8 @@ public class VisionConstants {
                     new Translation2d(0.2, -0.15),
                     0.3,
                     Rotation2d.fromDegrees(-35),
-                    30,
-                    180 // upside-down
+                    0,
+                    0
                     ),
             new PhotonCameraProperties(
                     "BackLeftCam",
@@ -85,8 +85,8 @@ public class VisionConstants {
                     new Translation2d(-0.2, 0.15),
                     0.3,
                     Rotation2d.fromDegrees(60),
-                    30,
-                    180 // upside-down
+                    0,
+                    0
                     ),
             new PhotonCameraProperties(
                     "BackRightCam",
@@ -101,7 +101,7 @@ public class VisionConstants {
                     new Translation2d(-0.2, -0.15),
                     0.3,
                     Rotation2d.fromDegrees(-60),
-                    30,
-                    180 // upside-down
+                    0,
+                    0
                     ));
 }

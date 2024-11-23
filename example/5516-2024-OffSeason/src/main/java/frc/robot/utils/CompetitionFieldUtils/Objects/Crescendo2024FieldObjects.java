@@ -60,6 +60,10 @@ public final class Crescendo2024FieldObjects {
         public String getTypeName() {
             return "Note";
         }
+
+        public double getNoteDiameter() {
+            return NOTE_DIAMETER;
+        }
     }
 
     /** a note that is flying from a shooter to the speaker the flight is simulated by a simple linear animation */
