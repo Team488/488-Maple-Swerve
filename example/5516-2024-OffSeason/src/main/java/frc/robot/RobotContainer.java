@@ -350,7 +350,6 @@ public class RobotContainer {
             intake.runInvertVoltage();
             flyWheels.forceMaxRevert();
         }));
-
         /* amp command */
         driverXBox
                 .y()
