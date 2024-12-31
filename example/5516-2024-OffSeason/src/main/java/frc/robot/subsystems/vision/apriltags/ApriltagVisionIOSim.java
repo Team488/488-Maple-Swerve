@@ -8,6 +8,7 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.geometry.Translation3d;
 import frc.robot.utils.CompetitionFieldUtils.Objects.Crescendo2024FieldObjects;
 import frc.robot.utils.CompetitionFieldUtils.Objects.Crescendo2024FieldObjects.NoteOnFieldSimulated;
+import frc.robot.subsystems.objectdetection.LocalhostCommunicator;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -19,6 +20,7 @@ import org.photonvision.simulation.VisionTargetSim;
 
 public class ApriltagVisionIOSim extends AprilTagVisionIOReal {
     private final VisionSystemSim visionSystemSim;
+    // private final LocalhostCommunicator localhostCommunicator;
     private final PhotonCameraSim[] camerasSim;
     private final Supplier<Pose2d> robotActualPoseInSimulationSupplier;
 
@@ -27,7 +29,6 @@ public class ApriltagVisionIOSim extends AprilTagVisionIOReal {
             AprilTagFieldLayout aprilTagFieldLayout,
             Supplier<Pose2d> robotActualPoseInSimulationSupplier) {
         super(cameraProperties);
-
         this.robotActualPoseInSimulationSupplier = robotActualPoseInSimulationSupplier;
         this.visionSystemSim = new VisionSystemSim("main");
         visionSystemSim.addAprilTags(aprilTagFieldLayout);
@@ -43,6 +44,8 @@ public class ApriltagVisionIOSim extends AprilTagVisionIOReal {
             cameraSim.enableDrawWireframe(true);
             visionSystemSim.addCamera(camerasSim[i] = cameraSim, cameraProperties.get(i).robotToCamera);
         }
+        // this.localhostCommunicator = new LocalhostCommunicator(camerasSim);
+
     }
 
     private static final Translation2d[] NOTE_INITIAL_POSITIONS = new Translation2d[] {
@@ -72,5 +75,11 @@ public class ApriltagVisionIOSim extends AprilTagVisionIOReal {
     public void updateInputs(VisionInputs inputs) {
         visionSystemSim.update(robotActualPoseInSimulationSupplier.get());
         super.updateInputs(inputs);
+        // localhostCommunicator.updateAllCameraFrames();
+    }
+
+    @Override
+    public void close(){
+        // localhostCommunicator.close();
     }
 }
